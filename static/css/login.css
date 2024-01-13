@@ -4,7 +4,7 @@
         }
 
 body{
-	background-image:url('https://images.pexels.com/photos/159397/solar-panel-array-power-sun-electricity-159397.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+	background:red;
 	background-size: cover;
 	background-attachment: fixed;
 
