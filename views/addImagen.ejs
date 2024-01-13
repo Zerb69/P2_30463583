@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Imagen</title>
+
+	<style type="text/css">
+
+@font-face{
+          font-family: 'fuente2';
+          src:url('/fuentes/Crimen en Levante.ttf');
+        }
+
+		body{
+			background-image: url('https://images.pexels.com/photos/690887/pexels-photo-690887.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+			background-attachment: fixed;
+			background-size: cover;
+		}
+    form{
+    	display: flex;
+    	flex-direction: column;
+    	justify-content: center;
+    	align-items: center;
+    	margin:80px auto;
+    	width:40%;
+    }
+    input{
+    	padding:10px;
+    	margin:10px;
+    }
+    input:nth-child(1){
+    	background: rgb(108, 221, 34);
+    }
+    input:nth-child(2){
+    	background: rgb(233, 30, 99);
+    }
+    label{
+    	font:2rem 'fuente2' ;
+    	color:white;
+    }
+   h1{
+   	font:2rem 'fuente2' ;
+   	text-align: center;
+   	line-height: 50px;
+   	color:white;
+   }
+   #destacado{
+   	width:20%;
+   	border-radius:10px 10px 10px 10px;
+   	cursor:pointer;
+   }
+  #divDestacado{
+  	border:1px solid black;
+  	width:70%;
+  	margin:50px auto;
+    backdrop-filter: blur(6px);
+    border-radius:10px;
+    box-shadow:10px 15px 60px white;
+  }
+  #botones{
+	display:flex;
+	justify-content: flex-start;
+	align-items: center;
+}
+  #botones a{
+	border-radius:15px 10px 20px 10px;
+	font:40px 'fuente2';
+	padding:20px;
+	text-decoration: none;
+	color:rgba(67, 250, 248,.8);
+	transition: all 1s;
+}
+#botones a:hover{
+transform: rotate(20deg);
+color:white;
+}
+.inputOption{
+	border-radius:10px;
+	height:5vh;
+	line-height:1px;
+	transition:all 1s;
+	background:rgb(67, 250, 248);
+	cursor:pointer;
+}
+.inputOption:hover{
+	transform:scale(1.1);
+}
+	</style>
+
+
+</head>
+<body>
+<h1>Agregar Imagen</h1>
+
+<div id='divDestacado'>
+	
+<form action="/addImagen/<%=modelo.producto_id%>" method="post" enctype="multipart/form-data">
+	<label for='imagen'>Imagen</label>
+	
+	<input type="file" name="img" id="img" placeholder="Imagen">
+  
+	<label for="destacado">Destacado</label>
+
+  <select id='destacado' name='destacado'>
+  	<option value='1'>principal</option>
+  	<option value='0'>No principal</option>
+  </select>
+
+  <div style='margin-top:1rem;'>
+  	<input type="submit" value="Agregar" class='inputOption'>
+  	<input type="button" value="cancelar" onclick="cancelar()" class="inputOption">
+  </div>
+
+	
+</form>
+</div>
+<script type="text/javascript">
+	
+	const cancelar = ()=>{
+		window.location.href='/productos';
+	}
+
+</script>
+</body>
+</html>
